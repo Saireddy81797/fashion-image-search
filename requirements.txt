@@ -1,0 +1,12 @@
+streamlit
+torch
+torchvision
+transformers
+faiss-cpu
+Pillow
+numpy
+pandas
+requests
+tqdm
+diffusers
+sentence-transformers
