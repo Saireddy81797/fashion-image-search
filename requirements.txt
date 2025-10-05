@@ -5,6 +5,6 @@ Pillow
 numpy
 faiss-cpu
 transformers
-accelerate
 diffusers
+accelerate
 safetensors
