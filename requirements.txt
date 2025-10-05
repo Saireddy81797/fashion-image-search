@@ -1,7 +1,2 @@
 streamlit
-torch==2.3.0
-transformers
-diffusers
 Pillow
-numpy
-scikit-learn
