@@ -2,6 +2,12 @@ import streamlit as st
 from PIL import Image
 import os
 
+# ✅ Fix for OMP duplicate library error (important for PyTorch / Hugging Face)
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+
+# ✅ Health check log for Streamlit Cloud
+print("✅ Streamlit app started successfully!")
+
 st.set_page_config(page_title="Fashion Image Search & GenAI", layout="wide")
 st.title("👗 Fashion Image Search & Generative AI")
 st.caption("Hosted by **Sai Reddy** 💫")
