@@ -1,2 +1,6 @@
 streamlit
+pandas
+numpy
 Pillow
+torch
+scikit-learn
