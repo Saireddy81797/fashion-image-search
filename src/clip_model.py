@@ -5,10 +5,10 @@ from PIL import Image
 
 class CLIPModel:
     def __init__(self, device=None):
-        # Automatically pick CUDA or CPU
+        # Automatically select device
         self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
 
-        # Load Hugging Face CLIP model and processor
+        # Load the Hugging Face CLIP model and processor
         self.model = HFCLIPModel.from_pretrained("openai/clip-vit-base-patch32").to(self.device)
         self.processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
@@ -20,7 +20,6 @@ class CLIPModel:
         with torch.no_grad():
             image_features = self.model.get_image_features(**inputs)
 
-        # Normalize embeddings
         image_features = image_features / image_features.norm(dim=-1, keepdim=True)
         return image_features.cpu().numpy()
 
@@ -31,6 +30,5 @@ class CLIPModel:
         with torch.no_grad():
             text_features = self.model.get_text_features(**inputs)
 
-        # Normalize embeddings
         text_features = text_features / text_features.norm(dim=-1, keepdim=True)
         return text_features.cpu().numpy()
